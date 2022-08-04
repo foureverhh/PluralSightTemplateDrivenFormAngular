@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { UserSettingsFormComponent } from './user-settings-form/user-settings-form.component';
+import { CircularPipePipe } from './pipe/circular-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSettingsFormComponent
+    UserSettingsFormComponent,
+    CircularPipePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
