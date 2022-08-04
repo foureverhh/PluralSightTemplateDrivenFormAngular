@@ -1,6 +1,6 @@
 <div class="container">
     <h2>User Settings</h2>
-    <form #myForm="ngForm" ngNativeValidate>
+    <form #myForm="ngForm" ngNativeValidate> <!--ngNativeValidate to enable htmlt validation required pattern min max -->
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" placeholder="Name" id="name" name="name" class="form-control" [(ngModel)]="userSettings.name">
