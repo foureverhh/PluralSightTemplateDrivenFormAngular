@@ -3,9 +3,16 @@
     <form #myForm="ngForm" ngNativeValidate> <!--ngNativeValidate to enable html5 validation required pattern min max -->
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" placeholder="Name" id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #classTest>
+            
+            <input type="text" placeholder="Name" id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #classTest #propertyTest="ngModel">
         </div>
-        {{classTest.className}}
+        <p>{{classTest.className}}</p><!--via template reference variable to get input element attribute-->
+        <h3>PropertyTest from <b>ngModel</b> property dirty: {{ propertyTest.dirty }}</h3>
+        <h3>PropertyTest from <b>ngModel</b> property pristine: {{ propertyTest.pristine }}</h3>
+        <h3>PropertyTest from <b>ngModel</b> property touched: {{ propertyTest.touched }}</h3>
+        <h3>PropertyTest from <b>ngModel</b> property untouched: {{ propertyTest.untouched }}</h3>
+        <h3>PropertyTest from <b>ngModel</b> property valid: {{ propertyTest.valid }}</h3>
+        <h3>PropertyTest from <b>ngModel</b> property invalid: {{ propertyTest.invalid }}</h3>
         <div class="form-group">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers">
