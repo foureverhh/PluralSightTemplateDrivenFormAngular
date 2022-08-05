@@ -1,0 +1,8 @@
+.ng-invalid {
+    border: 1px solid blue;
+}
+
+/* not(form) means when .ng-invalid not a form element,then red border applies */
+.ng-invalid:not(form).ng-touched { 
+    border: 1px solid red;
+}
