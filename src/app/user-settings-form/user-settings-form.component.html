@@ -47,6 +47,11 @@
           btnCheckboxTrue="On" btnCheckboxFalse="Off">
           {{singleModel}}
         </button>
+        <div class="form-group">
+          User Rating
+          <rating [(ngModel)]="userRating" [max]="maxRating" [readonly]="isReadOnly" name="userRating" id="userRating" [titles]="['one','two','three']"></rating>
+        </div>
+        <p>User Rating {{userRating}}</p>
         <!--
             <p>{{classTest.className}}</p>
         --> <!--classTest via template reference variable to get input element attribute-->

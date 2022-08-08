@@ -29,6 +29,9 @@ export class UserSettingsFormComponent implements OnInit{
   startDate!: Date;
   startDateRange!: Date;
   startTime!: Date;
+  userRating:number = 0;
+  maxRating:number = 10;
+  isReadOnly:boolean = false;
 
   constructor(private dataService: DataService) { }
 
