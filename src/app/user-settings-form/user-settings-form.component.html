@@ -27,6 +27,15 @@
                 [(ngModel)]="startDate" name="startDate" id="startDate" bsDatepicker>
         </div>
         <p>start Date : {{startDate}}</p>
+
+        <div class="form-group">
+          <label for="starDate">Start Date</label>
+          <input type="text"
+                placeholder="start date"
+                class="form-control"
+                [(ngModel)]="startDateRange" name="startDateRange" id="startDate" bsDaterangepicker>
+        </div>
+        <p>start Date : {{startDate}}</p>
         <button type="button" class="btn btn-primary" name="singleModel"
           [(ngModel)]="singleModel" btnCheckbox
           btnCheckboxTrue="On" btnCheckboxFalse="Off">

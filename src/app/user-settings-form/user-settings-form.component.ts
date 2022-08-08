@@ -26,6 +26,7 @@ export class UserSettingsFormComponent implements OnInit{
   postError: boolean = false;
   singleModel = 'On';
   startDate: Date = new Date();
+  startDateRange: Date = new Date();
 
   constructor(private dataService: DataService) { }
 
