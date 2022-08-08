@@ -24,6 +24,7 @@ export class UserSettingsFormComponent implements OnInit{
   userSettings: UserSettings = {...this.originUserSettings};
   postErrorMessage: any = '';
   postError: boolean = false;
+  singleModel = 'On';
 
   constructor(private dataService: DataService) { }
 

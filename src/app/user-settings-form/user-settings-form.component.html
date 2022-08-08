@@ -19,6 +19,11 @@
                 Enter a name
             </div>
         </div>
+        <button type="button" class="btn btn-primary" name="singleModel"
+          [(ngModel)]="singleModel" btnCheckbox
+          btnCheckboxTrue="On" btnCheckboxFalse="Off">
+          {{singleModel}}
+        </button>
         <!--
             <p>{{classTest.className}}</p>
         --> <!--classTest via template reference variable to get input element attribute-->
