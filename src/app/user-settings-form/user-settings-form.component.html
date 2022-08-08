@@ -1,15 +1,20 @@
 <div class="container">
     <h2>User Settings</h2>
     <!--<form #myForm="ngForm" ngNativeValidate>--> <!--ngNativeValidate to enable html5 validation required pattern min max -->
-    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)"> 
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
         <div class="form-group">
             <label for="name">Name</label>
-            <input  type="text" placeholder="Name" 
-                    id="name" name="name" 
-                    class="form-control" [(ngModel)]="userSettings.name" 
-                    required #classTest #nameField="ngModel"
+            <input  type="text"
+                    placeholder="Name"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    [(ngModel)]="userSettings.name"
+                    required
+                    #classTest
+                    #nameField="ngModel"
                     [class.field-error]="myForm.submitted && nameField.invalid">
-            <!-- <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger"> --> 
+            <!-- <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger"> -->
             <div [hidden]="!myForm.submitted || nameField.untouched" class="alert alert-danger">
                 Enter a name
             </div>
@@ -49,9 +54,13 @@
         <div class="form-group">
             <label for="subscriptionType">Subscription Type</label>
             <select class="form-control" name="subscriptionType" id="subscriptionType" [(ngModel)]="userSettings.subscriptionType">
-                <option value="mothly">Monthly</option>
-                <option value="Annually">Annually</option>
-                <option value="Lifetime">Lifetime</option>
+              <!--
+              <option value="mothly">Monthly</option>
+              <option value="Annually">Annually</option>
+              <option value="Lifetime">Lifetime</option>
+              -->
+              <option *ngFor="let type of subscriptionTypes" value={{type}}>{{type}}</option>
+              <option *ngFor="let type of subObservable | async" value={{type}}>{{type}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -63,7 +72,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" class="form-control" name="password" ngModel>
         </div>
-        
+
         <div class="form-group">
             <label for="dateMy">Choose Date</label>
             <input type="date" id="dateMy" class="form-control" name="dateMy" ngModel>
@@ -73,8 +82,11 @@
             <input type="color" id="colorMy" class="form-control" name="colorMy" ngModel>
         </div>
         -->
+        <div [hidden]="!postError" class="alert alert-danger">
+          {{postErrorMessage}}
+        </div>
         <button class="btn btn-primary">Send</button>
-    </form> 
+    </form>
 </div>
 <hr>
 <div class="container">

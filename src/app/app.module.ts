@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { UserSettingsFormComponent } from './user-settings-form/user-settings-form.component';
 import { CircularPipePipe } from './pipe/circular-pipe.pipe';
-
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +16,7 @@ import { CircularPipePipe } from './pipe/circular-pipe.pipe';
     BrowserModule,
     FormsModule,
     CommonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
