@@ -43,6 +43,13 @@
         </div>
         <p>User Interface Style</p>
         <div class="form-group">
+          <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+                 btnRadio="Light" tabindex="0" role="button">Light</label>
+          <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+                 btnRadio="Medium" tabindex="0" role="button">Medium</label>
+          <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" name="interfaceStyle"
+                 btnRadio="Dark" tabindex="0" role="button">Dark</label>
+          <!--
             <div class="form-check" required>
                 <input type="radio" name="interfaceStyle" class="form-check-input" id="lightInterface" value="light" checked [(ngModel)]="userSettings.interfaceStyle">
                 <label for="lightInterface" class="form-check-label">Light</label>
@@ -55,6 +62,7 @@
                 <input type="radio" name="interfaceStyle" class="form-check-input" id="darkInterface" value="dark" [(ngModel)]="userSettings.interfaceStyle">
                 <label for="darkInterface" class="form-check-label">Dark</label>
             </div>
+            -->
         </div>
         <div class="form-group">
             <label for="subscriptionType">Subscription Type</label>
