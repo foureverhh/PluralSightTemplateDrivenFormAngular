@@ -8,7 +8,8 @@ import { CircularPipePipe } from './pipe/circular-pipe.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
+    TimepickerModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

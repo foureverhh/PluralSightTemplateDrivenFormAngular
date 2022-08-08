@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -25,14 +26,18 @@ export class UserSettingsFormComponent implements OnInit{
   postErrorMessage: any = '';
   postError: boolean = false;
   singleModel = 'On';
-  startDate: Date = new Date();
-  startDateRange: Date = new Date();
+  startDate!: Date;
+  startDateRange!: Date;
+  startTime!: Date;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.getSubscriptionTypes().subscribe(data => this.subscriptionTypes = data);
     this.subObservable = this.dataService.getSubscriptionTypes();
+    this.startDate = new Date();
+    this.startDateRange = new Date();
+    this.startTime = new Date();
   }
 
   onSubmit(form: NgForm) {
