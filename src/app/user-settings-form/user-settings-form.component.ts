@@ -1,9 +1,12 @@
+
 import { Time } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DataService } from '../data/data.service';
+import { NgForm, NgModel } from '@angular/forms';
+
 import { UserSettings } from '../model/user-settings';
+import { DataServiceService } from '../service/data-service.service';
 @Component({
   selector: 'app-user-settings-form',
   templateUrl: './user-settings-form.component.html',
@@ -22,6 +25,7 @@ export class UserSettingsFormComponent implements OnInit{
   subscriptionTypes:string[] = [];
   subObservable:Observable<string[]> = new Observable();
 
+
   userSettings: UserSettings = {...this.originUserSettings};
   postErrorMessage: any = '';
   postError: boolean = false;
@@ -33,7 +37,8 @@ export class UserSettingsFormComponent implements OnInit{
   maxRating:number = 10;
   isReadOnly:boolean = false;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private data: DataServiceService) { }
+
 
   ngOnInit(): void {
     this.dataService.getSubscriptionTypes().subscribe(data => this.subscriptionTypes = data);
@@ -44,6 +49,7 @@ export class UserSettingsFormComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
+
     console.log('in onSubmit form.valid', form.valid);
     console.log('in onSubmit form.value', form.value);
     if(form.valid) {
@@ -63,5 +69,14 @@ export class UserSettingsFormComponent implements OnInit{
     console.log('error', errorResonse);
     this.postError = true;
     this.postErrorMessage = errorResonse.message;
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe({
+      next: data => console.log('success', 'receive data ' + data),
+      error: error => console.log('error', 'error occurs ' + error),
+      complete: () => console.log('done')
+  });
+  }
+
+  onBlur(field: NgModel) {
+    console.log('in onBlur', field.valid);
   }
 }
